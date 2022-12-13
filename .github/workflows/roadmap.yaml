@@ -16,18 +16,26 @@ jobs:
           project-url: https://github.com/users/DmitriyLewen/projects/1
           github-token: ${{ secrets.ADD_TO_ROADMAP }}
           labeled: priority/backlog
-        id: add-project
+        id: add-backlog-issue
+      - uses: titoportas/update-project-fields@v0.1.0
+        with:
+          project-url: https://github.com/users/DmitriyLewen/projects/1
+          github-token: ${{ secrets.ADD_TO_ROADMAP }}
+          item-id: ${{ steps.add-backlog-issue.outputs.itemId }} # Use the item-id output of the previous step
+          field-keys: Status
+          field-values: Backlog
+
       - uses: actions/add-to-project@v0.4.0
         with:
           project-url: https://github.com/users/DmitriyLewen/projects/1
           github-token: ${{ secrets.ADD_TO_ROADMAP }}
           labeled: priority/important-longterm, priority/important-soon, priority/critical-urgent
           label-operator: OR
-        id: add-project
+        id: add-other-issues
       - uses: titoportas/update-project-fields@v0.1.0
         with:
           project-url: https://github.com/users/DmitriyLewen/projects/1
           github-token: ${{ secrets.ADD_TO_ROADMAP }}
-          item-id: ${{ steps.add-project.outputs.itemId }} # Use the item-id output of the previous step
+          item-id: ${{ steps.add-other-issuese.outputs.itemId }} # Use the item-id output of the previous step
           field-keys: Status
-          field-values: Done
+          field-values: In Progress (Long-term)
