@@ -19,13 +19,13 @@ jobs:
           labeled: kind/feature, priority/backlog
           label-operator: AND
         id: add-backlog-issue
-      - uses: titoportas/update-project-fields@v0.1.0 # change status(column) of added issue
+      - uses: titoportas/update-project-fields@v0.1.0 # change Priority(column) of added issue
         if: ${{ steps.add-backlog-issue.outputs.itemId }}
         with:
           project-url: https://github.com/users/DmitriyLewen/projects/1
           github-token: ${{ secrets.ADD_TO_ROADMAP }}
           item-id: ${{ steps.add-backlog-issue.outputs.itemId }} # Use the item-id output of the previous step
-          field-keys: Status
+          field-keys: Priority
           field-values: Backlog
 
         ## 'kind/feature' AND 'priority/important-longterm' labels -> 'Important (long-term)' column
@@ -36,13 +36,13 @@ jobs:
           labeled: kind/feature, priority/important-longterm
           label-operator: AND
         id: add-longterm-issue
-      - uses: titoportas/update-project-fields@v0.1.0 # change status(column) of added issue
+      - uses: titoportas/update-project-fields@v0.1.0 # change Priority(column) of added issue
         if: ${{ steps.add-longterm-issue.outputs.itemId }}
         with:
           project-url: https://github.com/users/DmitriyLewen/projects/1
           github-token: ${{ secrets.ADD_TO_ROADMAP }}
           item-id: ${{ steps.add-longterm-issue.outputs.itemId }} # Use the item-id output of the previous step
-          field-keys: Status
+          field-keys: Priority
           field-values: Important (long-term)
 
         ## 'kind/feature' AND 'priority/important-soon' labels -> 'Important (soon)' column
@@ -53,13 +53,13 @@ jobs:
           labeled: kind/feature, priority/important-soon
           label-operator: AND
         id: add-soon-issue
-      - uses: titoportas/update-project-fields@v0.1.0 # change status(column) of added issue
+      - uses: titoportas/update-project-fields@v0.1.0 # change Priority(column) of added issue
         if: ${{ steps.add-soon-issue.outputs.itemId }}
         with:
           project-url: https://github.com/users/DmitriyLewen/projects/1
           github-token: ${{ secrets.ADD_TO_ROADMAP }}
           item-id: ${{ steps.add-soon-issue.outputs.itemId }} # Use the item-id output of the previous step
-          field-keys: Status
+          field-keys: Priority
           field-values: Important (soon)
 
         ## 'kind/feature' AND 'priority/critical-urgent' labels -> 'Urgent' column
@@ -70,11 +70,11 @@ jobs:
           labeled: kind/feature, priority/critical-urgent
           label-operator: AND
         id: add-urgent-issue
-      - uses: titoportas/update-project-fields@v0.1.0 # change status(column) of added issue
+      - uses: titoportas/update-project-fields@v0.1.0 # change Priority(column) of added issue
         if: ${{ steps.add-urgent-issue.outputs.itemId }}
         with:
           project-url: https://github.com/users/DmitriyLewen/projects/1
           github-token: ${{ secrets.ADD_TO_ROADMAP }}
           item-id: ${{ steps.add-urgent-issue.outputs.itemId }} # Use the item-id output of the previous step
-          field-keys: Status
+          field-keys: Priority
           field-values: Urgent
