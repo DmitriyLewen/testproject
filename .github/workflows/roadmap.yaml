@@ -18,7 +18,7 @@ jobs:
           labeled: priority/backlog
         id: add-backlog-issue
       - uses: titoportas/update-project-fields@v0.1.0
-        if: ${{ steps.add-backlog-issue }}
+        if: ${{ steps.add-backlog-issue.outputs.itemId }}
         with:
           project-url: https://github.com/users/DmitriyLewen/projects/1
           github-token: ${{ secrets.ADD_TO_ROADMAP }}
@@ -34,7 +34,7 @@ jobs:
           label-operator: OR
         id: add-other-issues
       - uses: titoportas/update-project-fields@v0.1.0
-        if: ${{ steps.add-other-issues }}
+        if: ${{ steps.add-other-issues.outputs.itemId }}
         with:
           project-url: https://github.com/users/DmitriyLewen/projects/1
           github-token: ${{ secrets.ADD_TO_ROADMAP }}
