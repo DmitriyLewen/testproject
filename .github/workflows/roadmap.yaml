@@ -14,9 +14,5 @@ jobs:
         with:
           project-url: https://github.com/users/DmitriyLewen/projects/1
           github-token: ${{ secrets.GITHUB_TOKEN }}
-          labeled:
-            - priority/backlog
-            - priority/important-longterm
-            - priority/important-soon
-            - priority/critical-urgent
+          labeled: priority/backlog, priority/important-longterm, priority/important-soon, priority/critical-urgent
           label-operator: OR
