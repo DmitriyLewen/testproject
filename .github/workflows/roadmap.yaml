@@ -1,0 +1,22 @@
+name: Add bugs to bugs project
+
+on:
+  issues:
+    types:
+      - labeled
+
+jobs:
+  add-issue-to-roadmap:
+    name: Add issue to roadmap
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/add-to-project@v0.4.0
+        with:
+          project-url: https://github.com/users/DmitriyLewen/projects/1
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+          labeled:
+            - priority/backlog
+            - priority/important-longterm
+            - priority/important-soon
+            - priority/critical-urgent
+          label-operator: OR
