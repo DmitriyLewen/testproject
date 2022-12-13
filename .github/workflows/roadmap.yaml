@@ -6,8 +6,8 @@ on:
       - labeled
 
 jobs:
-  add-issue-to-roadmap:
-    name: Add issue to roadmap
+  add-issue-to-roadmap-project:
+    name: Add issue to roadmap project
     runs-on: ubuntu-latest
     steps:
       - uses: actions/add-to-project@v0.4.0
