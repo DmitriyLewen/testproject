@@ -15,7 +15,13 @@ jobs:
         with:
           project-url: https://github.com/users/DmitriyLewen/projects/1
           github-token: ${{ secrets.ADD_TO_ROADMAP }}
-          labeled: priority/backlog, priority/important-longterm, priority/important-soon, priority/critical-urgent
+          labeled: priority/backlog
+        id: add-project
+      - uses: actions/add-to-project@v0.4.0
+        with:
+          project-url: https://github.com/users/DmitriyLewen/projects/1
+          github-token: ${{ secrets.ADD_TO_ROADMAP }}
+          labeled: priority/important-longterm, priority/important-soon, priority/critical-urgent
           label-operator: OR
         id: add-project
       - uses: titoportas/update-project-fields@v0.1.0
